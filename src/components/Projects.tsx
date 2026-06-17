@@ -1,125 +1,158 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { ExternalLink, Lock } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import { projects } from "@/lib/data";
 
-const projects = [
-  {
-    title: "Hisaab Kitaab",
-    description: "Fintech accounting system with robust organization management and module-based access control.",
-    tags: ["React", "Node.js", "MongoDB"],
-    color: "from-blue-500/20 to-cyan-500/20",
-    image: "/projects/hisaab.png",
-    icon: "💰"
-  },
-  {
-    title: "Beyond AI Tools",
-    description: "Platform dedicated to AI technology with a custom geometric visual identity.",
-    tags: ["Next.js", "Modern UI"],
-    color: "from-purple-500/20 to-pink-500/20",
-    image: "/projects/beyond.png",
-    icon: "🤖"
-  },
-  {
-    title: "IoT Fleet Management",
-    description: "Dashboard for monitoring enterprise vehicle fleets using real-time IoT data streams.",
-    tags: ["Dashboard", "IoT"],
-    color: "from-orange-500/20 to-yellow-500/20",
-    image: null,
-    icon: "🚚"
-  },
-  {
-    title: "Advanced POS System",
-    description: "High-performance transaction and inventory management system.",
-    tags: ["Full Stack", "Inventory"],
-    color: "from-green-500/20 to-emerald-500/20",
-    image: null,
-    icon: "🛒"
-  }
-];
-
-const Projects = () => {
+export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 bg-secondary/20">
-      <div className="container mx-auto">
-        <motion.h2
+    <section id="projects" className="py-28 px-6 bg-secondary/20">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-cyan glow-text mb-20 text-center"
+          className="mb-16"
         >
-          View my work
-        </motion.h2>
+          <p className="text-accent text-sm font-mono font-semibold tracking-widest mb-3 uppercase">
+            04 — Projects
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-text-main">
+            Things I&apos;ve built
+          </h2>
+        </motion.div>
 
-        <div className="space-y-32">
+        <div className="space-y-24">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7 }}
               className={`flex flex-col ${
                 index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } gap-12 items-center`}
+              } gap-10 items-center`}
             >
               {/* Image / Placeholder */}
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="w-full lg:w-1/2 aspect-video bg-secondary rounded-2xl overflow-hidden border border-white/10 relative group shadow-2xl"
+                className="w-full lg:w-1/2 aspect-video rounded-2xl overflow-hidden border border-white/8 relative group shadow-2xl"
               >
                 {project.image ? (
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 ) : (
                   <>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.color}`} />
-                    <div className="absolute inset-0 flex items-center justify-center text-8xl grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110">
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center text-8xl transition-transform duration-500 group-hover:scale-110">
                       {project.icon}
                     </div>
                   </>
                 )}
-                
-                <div className="absolute inset-0 bg-primary/40 group-hover:bg-transparent transition-colors" />
-                
-                {/* Overlay Links */}
-                <div className="absolute inset-0 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="p-4 bg-primary rounded-full text-neon hover:bg-neon hover:text-primary transition-colors">
-                    <FaGithub size={24} />
-                  </button>
-                  <button className="p-4 bg-primary rounded-full text-cyan hover:bg-cyan hover:text-primary transition-colors">
-                    <ExternalLink size={24} />
-                  </button>
+                <div className="absolute inset-0 bg-primary/40 group-hover:bg-transparent transition-colors duration-300" />
+
+                {/* Hover links */}
+                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Live demo"
+                      className="p-3 bg-accent rounded-full text-white hover:bg-accent/80 transition-colors shadow-blue"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                  {project.nda ? (
+                    <div
+                      title="Code under NDA"
+                      className="p-3 bg-secondary/80 rounded-full text-text-muted border border-white/10"
+                    >
+                      <Lock size={20} />
+                    </div>
+                  ) : (
+                    project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="View on GitHub"
+                        className="p-3 bg-secondary/80 rounded-full text-text-main hover:text-accent border border-white/10 transition-colors"
+                      >
+                        <FaGithub size={20} />
+                      </a>
+                    )
+                  )}
                 </div>
               </motion.div>
 
-              {/* Text Content */}
-              <div className="w-full lg:w-1/2 space-y-6">
-                <div className="flex gap-2">
+              {/* Text */}
+              <div className="w-full lg:w-1/2 space-y-5">
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="text-xs font-mono text-neon bg-neon/10 px-3 py-1 rounded-full border border-neon/20">
+                    <span
+                      key={tag}
+                      className="text-xs font-mono font-medium px-3 py-1 rounded-full bg-accent/8 border border-accent/15 text-accent-light"
+                    >
                       {tag}
                     </span>
                   ))}
+                  {project.nda && (
+                    <span className="text-xs font-mono font-medium px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 flex items-center gap-1">
+                      <Lock size={10} /> NDA
+                    </span>
+                  )}
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-text-main group-hover:text-neon transition-colors">
+
+                <h3 className="text-2xl md:text-3xl font-bold text-text-main leading-tight">
                   {project.title}
                 </h3>
-                <p className="text-text-muted text-lg leading-relaxed">
+                <p className="text-text-muted text-base leading-relaxed">
                   {project.description}
                 </p>
-                <motion.button 
-                  whileHover={{ x: 10 }}
-                  className="flex items-center gap-2 text-cyan font-bold hover:text-neon transition-colors"
-                >
-                  View Case Study <ExternalLink size={18} />
-                </motion.button>
+
+                <div className="flex items-center gap-4 pt-2">
+                  {project.liveUrl && (
+                    <motion.a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ x: 4 }}
+                      className="flex items-center gap-2 text-accent font-semibold text-sm hover:text-accent-light transition-colors"
+                    >
+                      Live Demo <ExternalLink size={15} />
+                    </motion.a>
+                  )}
+                  {project.nda ? (
+                    <span className="flex items-center gap-1.5 text-text-muted text-sm">
+                      <Lock size={14} /> Code under NDA
+                    </span>
+                  ) : (
+                    project.githubUrl && (
+                      <motion.a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ x: 4 }}
+                        className="flex items-center gap-2 text-text-muted font-semibold text-sm hover:text-text-main transition-colors"
+                      >
+                        <FaGithub size={16} /> GitHub
+                      </motion.a>
+                    )
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -127,7 +160,4 @@ const Projects = () => {
       </div>
     </section>
   );
-};
-
-export default Projects;
-
+}
