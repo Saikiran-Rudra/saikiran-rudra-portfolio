@@ -76,16 +76,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left — Text content */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-          {/* Open to work badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-accent/10 border border-accent/25 text-accent text-sm font-medium"
-          >
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Open to Work — Remote &amp; Relocation
-          </motion.div>
+
 
           {/* Name */}
           <motion.h1
@@ -111,15 +102,40 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Objective */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65 }}
-            className="max-w-lg text-text-muted text-base leading-relaxed mb-10"
-          >
-            {personalInfo.objective}
-          </motion.p>
+          {/* Objective / Highlights */}
+          {personalInfo.heroHighlightPoints ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65 }}
+              className="max-w-xl space-y-4 text-text-muted text-base sm:text-lg leading-relaxed mb-10 text-left"
+            >
+              {personalInfo.heroHighlightPoints.map((point, idx) => {
+                const isLast = idx === personalInfo.heroHighlightPoints!.length - 1;
+                return (
+                  <p
+                    key={idx}
+                    className={cn(
+                      isLast
+                        ? "text-accent-light font-medium border-l-2 border-accent/40 pl-4 py-1 mt-6"
+                        : "opacity-95"
+                    )}
+                  >
+                    {point}
+                  </p>
+                );
+              })}
+            </motion.div>
+          ) : (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65 }}
+              className="max-w-lg text-text-muted text-base leading-relaxed mb-10"
+            >
+              {personalInfo.objective}
+            </motion.p>
+          )}
 
           {/* CTA buttons */}
           <motion.div

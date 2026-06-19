@@ -21,6 +21,7 @@ export interface PersonalInfo {
   github: string;
   portfolio: string;
   resumeUrl: string;
+  heroHighlightPoints?: string[];
 }
 
 export interface SkillCategory {
@@ -54,10 +55,14 @@ export interface Certification {
   title: string;
   issuer: string;
   year: string;
+  image?: string | null;
+  url?: string | null;
 }
 
 export interface Achievement {
   icon: string;
   title: string;
   description: string;
+  proofUrl?: string | null;
+  proofLabel?: string | null;
 }

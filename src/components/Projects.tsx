@@ -8,7 +8,7 @@ import { projects } from "@/lib/data";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 px-6 bg-secondary/20">
+    <section id="projects" className="py-28 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,9 +17,9 @@ export default function Projects() {
           className="mb-16"
         >
           <p className="text-accent text-sm font-mono font-semibold tracking-widest mb-3 uppercase">
-            04 — Projects
+            05 — Projects
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-text-main">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-main">
             Things I&apos;ve built
           </h2>
         </motion.div>
@@ -47,7 +47,8 @@ export default function Projects() {
                     alt={project.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    priority={index === 0}
+                    className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 ) : (
                   <>

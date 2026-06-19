@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Award } from "lucide-react";
 import { certifications } from "@/lib/data";
 
@@ -16,19 +17,19 @@ const itemVariants = {
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-28 px-6">
+    <section id="certifications" className="py-16 px-6 bg-secondary/20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-10"
         >
           <p className="text-accent text-sm font-mono font-semibold tracking-widest mb-3 uppercase">
-            05 — Certifications
+            06 — Certifications
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-text-main">
-            Learning credentials
+          <h2 className="text-3xl md:text-4xl font-bold text-text-main">
+            Certifications & Learning
           </h2>
         </motion.div>
 
@@ -43,18 +44,61 @@ export default function Certifications() {
             <motion.div
               key={cert.title}
               variants={itemVariants}
-              whileHover={{ y: -5, boxShadow: "0 0 25px rgba(59,130,246,0.12)" }}
-              className="glass-card rounded-2xl p-6 border border-accent/10 hover:border-accent/30 transition-all duration-300"
+              whileHover={{ y: -6, boxShadow: "0 0 30px rgba(59,130,246,0.15)" }}
+              className="glass-card rounded-2xl overflow-hidden border border-accent/10 hover:border-accent/35 transition-all duration-300 flex flex-col h-full group"
             >
-              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5">
-                <Award size={20} />
+              {/* Certificate Preview Image */}
+              <div className="relative aspect-[16/10] w-full bg-secondary/40 border-b border-white/5 overflow-hidden flex items-center justify-center">
+                {cert.image ? (
+                  <Image
+                    src={cert.image}
+                    alt={`${cert.title} Preview`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  /* Premium Fallback for McKinsey or missing cert images */
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/40 via-secondary/30 to-blue-950/40 flex flex-col items-center justify-center p-4 text-center">
+                    <Award className="text-accent/40 mb-1.5 animate-pulse" size={24} />
+                    <span className="text-[9px] font-mono tracking-widest text-text-muted uppercase">Verified Program</span>
+                  </div>
+                )}
               </div>
-              <h3 className="text-text-main font-semibold text-sm leading-snug mb-3">
-                {cert.title}
-              </h3>
-              <div className="flex items-center justify-between">
-                <span className="text-text-muted text-xs">{cert.issuer}</span>
-                <span className="text-accent text-xs font-mono font-medium">{cert.year}</span>
+
+              {/* Card Body */}
+              <div className="p-4 flex flex-col flex-grow justify-between">
+                <div>
+                  {/* Certificate Title */}
+                  <h3 className="text-text-main font-bold text-sm leading-snug mb-1.5 line-clamp-2 min-h-[40px] group-hover:text-accent-light transition-colors">
+                    {cert.title}
+                  </h3>
+
+                  {/* Details (Issuer and Year) */}
+                  <div className="flex items-center justify-between text-[11px] text-text-muted mb-4">
+                    <span className="font-semibold text-text-muted/80">{cert.issuer}</span>
+                    <span className="font-mono text-accent-light">{cert.year}</span>
+                  </div>
+                </div>
+
+                {/* View Credential CTA Button */}
+                <div className="mt-auto pt-1">
+                  {cert.url ? (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-full px-4 py-2 text-xs font-bold rounded-xl bg-accent/10 border border-accent/20 text-accent-light hover:bg-accent hover:text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.25)] transition-all duration-300"
+                    >
+                      View Credential
+                      <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 ml-1">→</span>
+                    </a>
+                  ) : (
+                    <div className="inline-flex items-center justify-center w-full px-4 py-2 text-xs font-semibold rounded-xl bg-white/5 border border-white/5 text-text-muted cursor-not-allowed">
+                      Verification Link N/A
+                    </div>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

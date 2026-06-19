@@ -1,9 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, FileText, Sun, Moon } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { navLinks, personalInfo } from "@/lib/data";
 
@@ -11,7 +10,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -26,7 +24,7 @@ export default function Navbar() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
 
   return (
     <>
@@ -63,19 +61,6 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Theme toggle */}
-            {mounted && (
-              <motion.button
-                onClick={toggleTheme}
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="Toggle theme"
-                className="w-9 h-9 rounded-full flex items-center justify-center bg-accent/10 border border-accent/20 text-accent hover:bg-accent/20 transition-all duration-200"
-              >
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-              </motion.button>
-            )}
-
             {/* Resume */}
             <motion.a
               href={personalInfo.resumeUrl}
@@ -92,15 +77,6 @@ export default function Navbar() {
 
           {/* Mobile right */}
           <div className="flex lg:hidden items-center gap-2">
-            {mounted && (
-              <button
-                onClick={toggleTheme}
-                aria-label="Toggle theme"
-                className="w-9 h-9 rounded-full flex items-center justify-center bg-accent/10 border border-accent/20 text-accent"
-              >
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-              </button>
-            )}
             <button
               onClick={() => setMobileOpen((o) => !o)}
               className="text-text-main p-2"

@@ -206,7 +206,7 @@ export default function Contact() {
             <p className="text-accent text-sm font-mono font-semibold tracking-widest mb-3 uppercase">
               07 — Contact
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-text-main mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4">
               Let&apos;s work together
             </h2>
             <p className="text-text-muted text-base max-w-md mx-auto">

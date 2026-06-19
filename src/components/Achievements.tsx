@@ -1,7 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Trophy, Medal, Users, BadgeCheck, type LucideIcon } from "lucide-react";
+import {
+  Trophy,
+  Medal,
+  Users,
+  BadgeCheck,
+  GraduationCap,
+  Award,
+  Cpu,
+  Rocket,
+  Globe,
+  type LucideIcon,
+} from "lucide-react";
 import { achievements } from "@/lib/data";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -9,6 +20,11 @@ const iconMap: Record<string, LucideIcon> = {
   Medal,
   Users,
   BadgeCheck,
+  GraduationCap,
+  Award,
+  Cpu,
+  Rocket,
+  Globe,
 };
 
 const iconColors: Record<string, string> = {
@@ -16,6 +32,11 @@ const iconColors: Record<string, string> = {
   Medal: "text-orange-400 bg-orange-400/10 border-orange-400/20",
   Users: "text-accent bg-accent/10 border-accent/20",
   BadgeCheck: "text-green-400 bg-green-400/10 border-green-400/20",
+  GraduationCap: "text-yellow-400 bg-yellow-400/10 border-yellow-400/20",
+  Award: "text-orange-300 bg-orange-300/10 border-orange-300/20",
+  Cpu: "text-cyan-400 bg-cyan-400/10 border-cyan-400/20",
+  Rocket: "text-purple-400 bg-purple-400/10 border-purple-400/20",
+  Globe: "text-blue-400 bg-blue-400/10 border-blue-400/20",
 };
 
 const containerVariants = {
@@ -30,7 +51,7 @@ const itemVariants = {
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-28 px-6 bg-secondary/20">
+    <section id="achievements" className="py-28 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,10 +60,10 @@ export default function Achievements() {
           className="mb-16"
         >
           <p className="text-accent text-sm font-mono font-semibold tracking-widest mb-3 uppercase">
-            06 — Achievements
+            07 — Achievements
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-text-main">
-            Milestones
+          <h2 className="text-3xl md:text-4xl font-bold text-text-main">
+            Achievements & Recognition
           </h2>
         </motion.div>
 
@@ -60,19 +81,34 @@ export default function Achievements() {
               <motion.div
                 key={item.title}
                 variants={itemVariants}
-                whileHover={{ y: -4, boxShadow: "0 0 30px rgba(59,130,246,0.1)" }}
-                className="glass-card rounded-2xl p-7 border border-accent/10 hover:border-accent/25 transition-all duration-300 flex items-start gap-5"
+                whileHover={{ y: -5, boxShadow: "0 0 35px rgba(59,130,246,0.12)" }}
+                className="glass-card rounded-2xl p-7 border border-accent/10 hover:border-accent/25 transition-all duration-300 flex items-start gap-5 group"
               >
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center border flex-shrink-0 ${colorClass}`}>
                   <Icon size={22} />
                 </div>
-                <div>
-                  <h3 className="text-text-main font-semibold text-base mb-2 leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-text-muted text-sm leading-relaxed">
-                    {item.description}
-                  </p>
+                <div className="flex-1 self-stretch flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-text-main font-semibold text-base mb-2 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-text-muted text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                  {item.proofUrl && item.proofUrl !== "#" && (
+                    <div className="mt-3">
+                      <a
+                        href={item.proofUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-xs font-mono font-semibold text-text-muted group-hover:text-accent-light transition-colors duration-300"
+                      >
+                        {item.proofLabel || "View Proof"}
+                        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 ml-1">→</span>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             );

@@ -10,14 +10,19 @@ import type {
 
 export const personalInfo: PersonalInfo = {
   name: "Saikiran Rudra",
-  roles: ["Full-Stack Developer", "AI Engineer", "React & Next.js Developer"],
+  roles: ["Full-Stack Developer & Product Builder", "Full-Stack Developer", "Product Builder"],
   tagline: "Crafting scalable web applications and AI-driven solutions.",
   objective:
-    "Full-Stack Developer with 6 months of internship experience in React.js, Next.js, Node.js, and MongoDB, passionate about building scalable web applications and AI-driven solutions. Transitioning into AI Engineering.",
+    "Full-Stack Developer & Product Builder with hands-on experience building production-ready ERP SaaS, working directly with founders, and delivering end-to-end features from concept to deployment.",
+  heroHighlightPoints: [
+    "During my internship, I built a GST billing ERP from scratch — invoicing, inventory, and accounting — used by real businesses.",
+    "I worked directly with founders on product decisions, customer demos, and feature planning — not just writing code.",
+    "Looking for a Full-Stack role where I can own features end-to-end — from idea to deployment."
+  ],
   bio: [
-    "I'm a Computer Engineering graduate and Full-Stack Developer with experience building scalable web applications using React.js, Next.js, Node.js, Express.js, and MongoDB.",
-    "With 6 months of internship experience and multiple real-world projects — including ERP/Billing SaaS and AI-powered platforms — I have worked across frontend development, backend APIs, database integration, authentication, deployment, and AI integrations.",
-    "I am passionate about building impactful products and continuously expanding my expertise in AI Engineering, LLM integrations, RAG systems, AI agents, and workflow automation.",
+    "I built my foundation in React during my Computer Engineering degree, then joined a startup internship where I learned backend development, databases, and deployment by building real products from scratch.",
+    "In 6 months I went from frontend-only to building a full-stack GST Billing ERP end-to-end — and alongside that, worked directly with founders on product decisions, customer demos, and feature planning.",
+    "Now I'm expanding into AI-powered products — combining full-stack development with LLM integrations to build tools that are actually useful, not just technically interesting."
   ],
   location: "Surat, Gujarat — Open to Remote & Relocation",
   email: "rudrasaikiran66@gmail.com",
@@ -39,19 +44,6 @@ export const navLinks: NavLink[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "AI & Automation",
-    icon: "FaBrain",
-    skills: [
-      "LLM APIs",
-      "AI Agents",
-      "Prompt Engineering",
-      "OCR",
-      "n8n",
-      "Docker",
-      "RAG (Learning)",
-    ],
-  },
-  {
     category: "Frontend",
     icon: "FaReact",
     skills: [
@@ -60,7 +52,6 @@ export const skillCategories: SkillCategory[] = [
       "TypeScript",
       "JavaScript ES6+",
       "Tailwind CSS",
-      "Framer Motion",
     ],
   },
   {
@@ -69,16 +60,30 @@ export const skillCategories: SkillCategory[] = [
     skills: ["Node.js", "Express.js", "REST APIs", "Mongoose", "Zod"],
   },
   {
-    category: "Database & Tools",
+    category: "Database & Infrastructure",
     icon: "FaDatabase",
     skills: [
       "MongoDB",
       "Firebase",
+      "Supabase",
       "Git",
       "GitHub",
       "Vercel",
-      "Zustand",
+      "Postman",
       "React Query",
+      "Zustand",
+    ],
+  },
+  {
+    category: "AI & Automation",
+    icon: "FaBrain",
+    skills: [
+      "OpenAI APIs",
+      "Prompt Engineering",
+      "RAG Systems",
+      "OCR",
+      "n8n",
+      "AI Workflows",
     ],
   },
 ];
@@ -122,7 +127,7 @@ export const projects: Project[] = [
     liveUrl: "https://skill-2-career-ai.vercel.app/",
     githubUrl: "https://github.com/Saikiran-Rudra/Skill-2-Career-AI",
     nda: false,
-    image: null,
+    image: "/projects/hero skill2carrer.jpg",
     gradient: "from-purple-500/20 to-pink-500/20",
     icon: "🤖",
   },
@@ -134,58 +139,71 @@ export const projects: Project[] = [
     liveUrl: "https://alumni-portal-mvp.netlify.app/",
     githubUrl: "https://github.com/Saikiran-Rudra/Alumni-Portal",
     nda: false,
-    image: null,
+    image: "/projects/hero alumni.jpg",
     gradient: "from-orange-500/20 to-yellow-500/20",
     icon: "🎓",
   },
+
 ];
 
 export const certifications: Certification[] = [
   {
-    title: "Introduction to Agentic AI",
+    title: "Introduction to Agent Skills",
     issuer: "Anthropic",
     year: "2026",
+    image: "/cert-achivement/into to agent skills.jpg",
+    url: "https://verify.skilljar.com/c/m58pv2ucqro3",
   },
   {
     title: "Generative AI Mastermind",
     issuer: "Cognitive Class",
     year: "2025",
+    image: "/cert-achivement/outskill.jpg",
+    url: null,
   },
   {
     title: "McKinsey Forward Program",
     issuer: "McKinsey & Company",
     year: "2025",
+    image: "/cert-achivement/MCkinsey certi.jpg",
+    url: "https://www.credly.com/badges/5e111785-0059-4ece-b8ab-c1cdd728e15b",
   },
   {
     title: "SAP Code Unnati",
     issuer: "Edunet Foundation",
     year: "2025",
+    image: "/cert-achivement/edunet.jpg",
+    url: "https://codeunnati.edunetfoundation.com/verify-certificate/CU25_24439",
   },
 ];
 
 export const achievements: Achievement[] = [
   {
+    icon: "GraduationCap",
+    title: "Gold Medalist — Diploma Engineering",
+    description: "Awarded Gold Medal for academic excellence throughout the diploma program.",
+    proofUrl: "https://drive.google.com/file/d/1W22pFL56I03FMiAlhWAvWEi8ARHdnYjS/view?usp=sharing",
+    proofLabel: "View Certificate",
+  },
+  {
     icon: "Trophy",
-    title: "1st Rank — SIH 2025 Internal Hackathon",
-    description:
-      "Won first place at the Smart India Hackathon 2025 internal round with the Alumni Connect Portal.",
+    title: "1st Rank — Smart India Hackathon Internal Round",
+    description: "Won first place at the Smart India Hackathon 2025 internal round with the Alumni Connect Portal.",
+    proofUrl: "https://drive.google.com/file/d/1xEcoiBkzgtfcjypDBXUHamz9B47oRTaQ/view?usp=sharing",
+    proofLabel: "View Certificate",
   },
   {
-    icon: "Medal",
-    title: "3rd Place — State Level IoT Design Challenge",
-    description:
-      "Secured third place at a state-level competition for an IoT fleet management dashboard design.",
+    icon: "Award",
+    title: "Runner-Up — Project Horizon",
+    description: "Secured consolation prize in Project Horizon for 'Student CMS Portal', recognizing our innovative efforts and dedication.",
+    proofUrl: "https://drive.google.com/file/d/16zACYqXYhQlKop7Nxj54oUFEWsLudGdx/view?usp=sharing",
+    proofLabel: "View Certificate",
   },
   {
-    icon: "Users",
-    title: "Founder & Co-Leader — Student Developer Club, BMU",
-    description:
-      "Founded and led the developer club, driving a community of student engineers.",
-  },
-  {
-    icon: "BadgeCheck",
-    title: "Selected — McKinsey Forward Program",
-    description:
-      "Competitively selected for McKinsey's global forward program for emerging leaders.",
-  },
+    icon: "Cpu",
+    title: "State-Level IoT Design Challenge",
+    description: "Secured 3rd position in the IoT Challenge for project 'Panchtatva', a smart irrigation system utilizing advanced sensor networks and data analytics to optimize agricultural water usage.",
+    proofUrl: "https://drive.google.com/file/d/1oOFm1wr9IMYNRj16N8y2z_U9Ty2y9HJ5/view?usp=sharing",
+    proofLabel: "View Certificate",
+  }
 ];

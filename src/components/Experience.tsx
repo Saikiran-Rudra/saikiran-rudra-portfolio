@@ -6,7 +6,7 @@ import { experiences } from "@/lib/data";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 px-6">
+    <section id="experience" className="py-28 px-6 bg-secondary/20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,9 +15,9 @@ export default function Experience() {
           className="mb-16"
         >
           <p className="text-accent text-sm font-mono font-semibold tracking-widest mb-3 uppercase">
-            03 — Experience
+            04 — Experience
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-text-main">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-main">
             Where I&apos;ve worked
           </h2>
         </motion.div>
