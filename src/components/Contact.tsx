@@ -36,8 +36,8 @@ const validators = {
   },
   message: (v: string): string | undefined => {
     if (!v.trim()) return "Message is required.";
-    if (v.trim().length < 20) return `Message must be at least 20 characters. (${v.trim().length}/20)`;
-    if (v.trim().length > 1000) return "Message must be under 1000 characters.";
+    if (v.trim().length < 10) return `Message must be at least 10 characters. (${v.trim().length}/10)`;
+    if (v.trim().length > 100) return "Message must be under 100 characters.";
   },
 };
 
@@ -154,18 +154,17 @@ export default function Contact() {
 
     setStatus("loading");
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
           name: fields.name.trim(),
           email: fields.email.trim(),
           message: fields.message.trim(),
         }),
       });
       const data = await res.json();
-      if (data.success) {
+      if (res.ok && data.success) {
         setStatus("success");
         setFields({ name: "", email: "", message: "" });
         setErrors({});
@@ -328,7 +327,7 @@ export default function Contact() {
                   value={fields.message}
                   onChange={(e) => handleChange("message", e.target.value)}
                   onBlur={() => handleBlur("message")}
-                  maxLength={1000}
+                  maxLength={100}
                   className={cn(
                     inputBase,
                     "resize-none",
@@ -341,10 +340,10 @@ export default function Contact() {
                 <div className="flex justify-end">
                   <span className={cn(
                     "text-xs font-mono",
-                    msgLength > 1000 ? "text-red-400" :
-                    msgLength >= 20 ? "text-green-400" : "text-text-muted"
+                    msgLength > 100 ? "text-red-400" :
+                    msgLength >= 10 ? "text-green-400" : "text-text-muted"
                   )}>
-                    {msgLength} / 1000
+                    {msgLength} / 100
                   </span>
                 </div>
               </Field>
