@@ -48,7 +48,7 @@ function SkillCard({ category }: { category: SkillCategory }) {
         {category.skills.map((skill) => (
           <span
             key={skill}
-            className="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/8 border border-accent/15 text-accent-light hover:bg-accent/15 transition-colors duration-200"
+            className="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/8 border border-accent/15 text-accent dark:text-accent-light hover:bg-accent/15 transition-colors duration-200"
           >
             {skill}
           </span>

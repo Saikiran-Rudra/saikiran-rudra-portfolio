@@ -48,7 +48,7 @@ export default function Projects() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority={index === 0}
-                    className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="object-cover object-top"
                   />
                 ) : (
                   <>
@@ -60,7 +60,6 @@ export default function Projects() {
                     </div>
                   </>
                 )}
-                <div className="absolute inset-0 bg-primary/40 group-hover:bg-transparent transition-colors duration-300" />
 
                 {/* Hover links */}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

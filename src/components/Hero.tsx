@@ -218,15 +218,6 @@ export default function Hero() {
                 priority
               />
             </div>
-            {/* Floating badge */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-3 -right-3 glass-card rounded-2xl px-4 py-2.5 border border-accent/20 shadow-blue"
-            >
-              <p className="text-xs text-text-muted font-mono">currently</p>
-              <p className="text-sm font-bold text-accent">@ TechSonance</p>
-            </motion.div>
           </div>
         </motion.div>
       </div>

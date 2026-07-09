@@ -13,15 +13,15 @@ export const personalInfo: PersonalInfo = {
   roles: ["Full-Stack Developer & Product Builder", "Full-Stack Developer", "Product Builder"],
   tagline: "Crafting scalable web applications and AI-driven solutions.",
   objective:
-    "Full-Stack Developer & Product Builder with hands-on experience building production-ready ERP SaaS, working directly with founders, and delivering end-to-end features from concept to deployment.",
+    "Full-Stack Developer & Product Builder with hands-on experience building a production-ready GST Billing & Business Management SaaS, working directly with founders, and delivering end-to-end features from concept to deployment.",
   heroHighlightPoints: [
-    "During my internship, I built a GST billing ERP from scratch — invoicing, inventory, and accounting — used by real businesses.",
+    "During my internship, I built a GST Billing & Business Management SaaS from scratch — invoicing, inventory, accounting, plus a WhatsApp bot for sales and an OCR pipeline for auto-filling invoices — used by real businesses.",
     "I worked directly with founders on product decisions, customer demos, and feature planning — not just writing code.",
     "Looking for a Full-Stack role where I can own features end-to-end — from idea to deployment."
   ],
   bio: [
     "I built my foundation in React during my Computer Engineering degree, then joined a startup internship where I learned backend development, databases, and deployment by building real products from scratch.",
-    "In 6 months I went from frontend-only to building a full-stack GST Billing ERP end-to-end — and alongside that, worked directly with founders on product decisions, customer demos, and feature planning.",
+    "In 6 months I went from frontend-only to owning a full-stack GST Billing & Business Management SaaS end-to-end — architecting the backend, integrating an OCR pipeline for invoice automation, and working directly with founders on product decisions, customer demos, and feature planning.",
     "Now I'm expanding into AI-powered products — combining full-stack development with LLM integrations to build tools that are actually useful, not just technically interesting."
   ],
   location: "Surat, Gujarat — Open to Remote & Relocation",
@@ -96,7 +96,7 @@ export const experiences: Experience[] = [
     location: "Surat, Gujarat",
     type: "On-site",
     bullets: [
-      "Built GST/ERP Billing SaaS using Next.js, Node.js, Express, and MongoDB",
+      "Built a GST Billing & Business Management SaaS using Next.js, Node.js, Express, and MongoDB",
       "Developed WhatsApp bot for sales automation",
       "Built OCR pipeline for invoice data extraction and ERP auto-fill",
       "Managed state with Zustand & React Query; UI with Tailwind CSS",
@@ -110,7 +110,7 @@ export const projects: Project[] = [
   {
     title: "GST Billing & Business Management SaaS",
     description:
-      "Cloud-based ERP covering GST invoicing, inventory, and accounting with a WhatsApp bot for sales automation and an OCR pipeline for invoice data extraction and ERP auto-fill. Built during internship at TechSonance InfoTech LLP.",
+      "Cloud-based GST Billing & Business Management SaaS covering invoicing, inventory, and accounting — with a WhatsApp bot for sales automation and an OCR pipeline for invoice data extraction and auto-fill. Built during internship at TechSonance InfoTech LLP.",
     tags: ["Next.js", "Node.js", "Express.js", "MongoDB", "Zustand", "Tailwind CSS"],
     liveUrl: "https://accunest.techsonance.co.in/",
     githubUrl: null,
