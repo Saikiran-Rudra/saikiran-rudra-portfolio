@@ -108,11 +108,11 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    title: "GST/ERP Billing SaaS — Hisaab Kitaab",
+    title: "GST Billing & Business Management SaaS",
     description:
       "Cloud-based ERP covering GST invoicing, inventory, and accounting with a WhatsApp bot for sales automation and an OCR pipeline for invoice data extraction and ERP auto-fill. Built during internship at TechSonance InfoTech LLP.",
     tags: ["Next.js", "Node.js", "Express.js", "MongoDB", "Zustand", "Tailwind CSS"],
-    liveUrl: "https://hisaabkitaab.techsonance.co.in/",
+    liveUrl: "https://accunest.techsonance.co.in/",
     githubUrl: null,
     nda: true,
     image: "/projects/hisaab.png",
