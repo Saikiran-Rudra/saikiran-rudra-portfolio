@@ -115,7 +115,7 @@ export const projects: Project[] = [
     liveUrl: "https://accunest.techsonance.co.in/",
     githubUrl: null,
     nda: true,
-    image: "/projects/hisaab.png",
+    image: "/projects/accu.jpg",
     gradient: "from-blue-500/20 to-cyan-500/20",
     icon: "💰",
   },
