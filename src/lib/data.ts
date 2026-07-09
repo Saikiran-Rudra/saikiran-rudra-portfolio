@@ -29,7 +29,7 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://www.linkedin.com/in/saikiran-rudra/",
   github: "https://github.com/Saikiran-Rudra",
   portfolio: "https://saikiran-rudra-portfolio.vercel.app/",
-  resumeUrl: "https://drive.google.com/file/d/1slyE8pXCkELO_rareOgZioXvwM7xECL_/view?usp=sharing",
+  resumeUrl: "/resume/Saikiran_Rudra_Resume.pdf",
 };
 
 export const navLinks: NavLink[] = [

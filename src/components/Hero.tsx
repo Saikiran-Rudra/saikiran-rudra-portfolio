@@ -154,6 +154,7 @@ export default function Hero() {
             </motion.button>
             <motion.a
               href={personalInfo.resumeUrl}
+              download="Saikiran_Rudra_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
