@@ -31,7 +31,7 @@ const cards = [
 ];
 
 const highlights = [
-  "Built GST Billing ERP",
+  "Built GST Billing & Business Management SaaS",
   "Full-Stack Development",
   "Product Discussions",
   "Founder Collaboration",

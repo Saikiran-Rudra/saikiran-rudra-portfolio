@@ -26,7 +26,7 @@ const timelineSteps = [
   {
     id: "product",
     stage: "Product",
-    title: "Shipped GST Billing ERP",
+    title: "Shipped GST Billing & Business Management SaaS",
     details: "Live Product • Real Businesses • End-to-End Ownership",
     icon: Award,
     active: false,
